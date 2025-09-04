@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes , Router } from "react-router-dom";
 import './App.css'
 import Main from "./components/MainPage";
 import { useState } from "react";
@@ -14,7 +14,7 @@ function App() {
   const [theme , setTheme] = useState(false)
   return (
     <>
-        <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/inv/:id" element={<Inventory/>}/>
           <Route path="/inv/:id/item/:itemid" element={<ItemPage/>}/>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<LogIn/>}/>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
