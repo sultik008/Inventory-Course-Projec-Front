@@ -1,0 +1,10 @@
+.collapse-content{
+    flex-direction: column;
+    width: 100% !important;
+}
+.w-100{
+    width: fit-content !important;
+}
+.navbar-nav{
+    width: 100% !important;
+}

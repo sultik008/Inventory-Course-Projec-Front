@@ -1,0 +1,10 @@
+@import './mdb.free.scss';
+
+// DARK SKIN
+$my-theme-primary: #474747;
+$my-theme-secondary: #2d2d2d;
+$my-dark-theme: mdb-dark-theme($my-theme-primary, $my-theme-secondary);
+
+.dark {
+  @include mdb-theme($my-dark-theme);
+}
