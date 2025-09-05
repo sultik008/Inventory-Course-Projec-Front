@@ -14,7 +14,7 @@ function App() {
   const [theme , setTheme] = useState(false)
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route path="/inv/:id" element={<Inventory/>}/>
           <Route path="/inv/:id/item/:itemid" element={<ItemPage/>}/>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<LogIn/>}/>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
