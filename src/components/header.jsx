@@ -47,17 +47,7 @@ export default function Header() {
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button'>
-                  Inventories
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem href="/inventory" link>Public inventories</MDBDropdownItem>
-                  <MDBDropdownItem link>Private inventories</MDBDropdownItem>
-                  <MDBDropdownItem link>My inventories</MDBDropdownItem>
-                  <MDBDropdownItem link><AddInventory></AddInventory></MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <MDBNavbarLink href="/admin">Admin Page</MDBNavbarLink>
             </MDBNavbarItem>
             </MDBNavbarNav>
              <MDBNavbarItem style={{alignSelf:"center"}}>

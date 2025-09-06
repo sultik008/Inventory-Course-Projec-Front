@@ -81,17 +81,13 @@ function Registration() {
                     onError={() => console.log("Login Failed")}
                   ></GoogleLogin>
                 </div>
-                <div style={{ width: "fit-content" }}>
+                <div onClick={() => window.location.href = "http://localhost:5000/api/auth/github"} style={{ width: "fit-content" }}>
                   <svg
                     style={{
                       width: "fit-content",
                       cursor: "pointer",
                       width: "45px",
                     }}
-                    onClick={() =>
-                      (window.location.href =
-                        "http://localhost:5000/api/auth/github")
-                    }
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"
                   >

@@ -174,13 +174,23 @@ export default function Inventory() {
     setItems(res.data);
   }
   async function handleCreateItem() {
-    const res = await createItems({ inventoryid: id , image , fieldValue1 , fieldValue2 , fieldValue3})
-    getItemsHandle()
-    console.log(res)
+    const res = await createItems({
+      inventoryid: id,
+      image,
+      fieldValue1,
+      fieldValue2,
+      fieldValue3,
+    });
+    getItemsHandle();
+    console.log(res);
   }
   async function saveCustomIdHandle() {
-    const res = await saveCustomId({format: format , formatValues: fieldValues , inventoryid: id})
-    console.log(res)
+    const res = await saveCustomId({
+      format: format,
+      formatValues: fieldValues.slice(0, 1),
+      inventoryid: id,
+    });
+    console.log(res);
   }
   return (
     <MDBContainer fluid style={{ height: "100vh" }}>
@@ -188,7 +198,7 @@ export default function Inventory() {
         <Header />
       </MDBRow>
       <MDBRow>
-        <BreadCrumbs paths={paths}/>
+        <BreadCrumbs paths={paths} />
       </MDBRow>
       <MDBTabs fill className="mb-3 dir-cl">
         <MDBTabsItem>
@@ -232,7 +242,11 @@ export default function Inventory() {
             <MDBTableHead className="fw-b">
               <tr>
                 <th>ID</th>
-                {Array.isArray(inventoryProps) ? inventoryProps.map((field) => {return <th>{field}</th>}) : ""}
+                {Array.isArray(inventoryProps)
+                  ? inventoryProps.map((field) => {
+                      return <th>{field}</th>;
+                    })
+                  : ""}
                 <th>Created By</th>
                 <th>Created At</th>
               </tr>
@@ -285,19 +299,19 @@ export default function Inventory() {
             >
               <MDBRow center>
                 <img
-                style={{
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  width: "50%",
-                  borderRadius: "8px",
-                }}
-                src={
-                  image
-                    ? image
-                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtEY1E5uyX1bU9au2oF74LoFPdthQlmZ5YIQ&s"
-                }
-                className="img-fluid hover-shadow"
-              />
+                  style={{
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    width: "50%",
+                    borderRadius: "8px",
+                  }}
+                  src={
+                    image
+                      ? image
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtEY1E5uyX1bU9au2oF74LoFPdthQlmZ5YIQ&s"
+                  }
+                  className="img-fluid hover-shadow"
+                />
               </MDBRow>
               <h5>Fill fields</h5>
               <MDBRow>
@@ -397,16 +411,20 @@ export default function Inventory() {
                 );
               })
             : ""}
-          <MDBRow>
-            <MDBCol
-              style={{ display: "flex", justifyContent: "center", gap: "20px" }}
+          <MDBRow
+
+            style={{ flexDirection: "row", justifyContent: "center" }}
+          >
+            <MDBRow
+              style={{display: "flex", justifyContent: "center", gap: "20px" }}
             >
-              <MDBBtn
+              <div style={{width: "fit-content", display: "flex" , gap: "10px"}}>
+                <MDBBtn
                 onClick={() => {
                   if (fieldsCount < 8) {
                     setFieldsCount(fieldsCount + 1);
                     send();
-                    handleSelect()
+                    handleSelect();
                   } else toast.info("Fields must be lowert than 8");
                 }}
               >
@@ -417,15 +435,18 @@ export default function Inventory() {
                   if (fieldsCount > 2) {
                     setFieldsCount(fieldsCount - 1);
                     send();
-                    handleSelect()
+                    handleSelect();
                   } else toast.info("Fields must be 2 or more");
                 }}
               >
                 Delete field
               </MDBBtn>
-            </MDBCol>
+              </div>
+            </MDBRow>
             <MDBRow style={{ justifyContent: "center", padding: "10px" }}>
-              <MDBBtn style={{ width: "25%" }} onClick={saveCustomIdHandle}>Save</MDBBtn>
+              <MDBBtn style={{ width: "25%" }} onClick={saveCustomIdHandle}>
+                Save
+              </MDBBtn>
             </MDBRow>
           </MDBRow>
         </MDBTabsPane>

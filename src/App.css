@@ -36,6 +36,9 @@
   gap: 20px; 
   touch-action: none;
 }
+.jC-center{
+  justify-content: center !important;
+}
 @media (max-width: 998px) {
   th,
   td {
